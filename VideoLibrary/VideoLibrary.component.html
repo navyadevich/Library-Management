@@ -1,0 +1,59 @@
+
+<h1>Hello, {{ userName | async }}</h1>
+<ul *ngIf="isAuthenticated | async">
+
+
+  <a [routerLink]='["/authentication/profile"]' title="Manage"></a>
+
+
+  <a [routerLink]='["/authentication/logout"]' [state]='{ local: true }' title="Logout">Logout</a>
+
+</ul>
+<ul *ngIf="(isAuthenticated | async) !== true">
+
+  <a [routerLink]='["/authentication/register"]'>Sorry dear Register</a>
+
+  <a [routerLink]='["/authentication/login"]'>/ Login Again</a>
+
+</ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+</head>
+<body>
+
+  <h4 style="text-align:center">Getting bored? Want some Relaxation?</h4>
+  <h2 style="text-align:center">Here's something to keep you entertained !!</h2>
+  <h3 style="text-align:center">Do not miss out sign in to access cool features!!!</h3>
+  <h1 style="text-align:center">Exclusive set of Videos only for you!!</h1>
+  <h4 style="text-align:center">You are just 1 step away to sign in...</h4>
+  <h5 style="text-align:center">Liked a Video?? Add it to your favourite List!!</h5><br>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col" *ngFor="let v of videos;">
+        <div class="visor-video">
+          <iframe width="300" height="200" [src]="this.sanitizer.bypassSecurityTrustResourceUrl(v.vUrl)" allowfullscreen>
+          </iframe>
+          <div class="container">
+            <span>
+              Title:{{v.vTitle}}<br>
+              Language:{{v.vLanguage}}<br>
+
+              <button type="button" (click)="addfavtable(v.iVideoId)" class="btn btn-primary">AddToFavourite</button>
+            </span>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

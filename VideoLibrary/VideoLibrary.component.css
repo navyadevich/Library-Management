@@ -1,0 +1,32 @@
+
+
+h1 {
+  font-style: italic;
+  color: blueviolet;
+  font-size: 15px;
+}
+h4 {
+  color: red;
+  font-style: italic;
+}
+h2 {
+  color: darkviolet;
+  font-style: italic;
+}
+h3 {
+  color: cornflowerblue;
+  font-style: italic;
+}
+h5 {
+  color: seagreen;
+  font-style: italic;
+}
+
+
+div.visor-video {
+  padding: 20px;
+}
+
+div.text-start {
+  color: black;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+</head>
+<body>
+
+  <h1 style="text-align:center">All Your Favourite Videos are here!!</h1><br /><br />
+  <div class="container">
+    <div class="row">
+      <div class="col" *ngFor="let v of favs;">
+        <div class="visor-video">
+          <iframe width="300" height="200" [src]="this.sanitizer.bypassSecurityTrustResourceUrl(v.vUrl)" allowfullscreen>
+          </iframe>
+          <div class="container">
+            <br>
+            <button class="btn btn-primary" (click)="deleteFavouriteFromServer(v.id,v.iVideoId)">DeleteFavourite</button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
